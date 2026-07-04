@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" width="1600" height="600">
+  <defs>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="600" fill="#111111"/>
+  <rect width="1600" height="600" fill="url(#grid)"/>
+  <rect x="0" y="0" width="6" height="600" fill="#e52222" opacity="0.5"/>
+  <path d="M 60 50 L 60 110 M 60 50 L 120 50" stroke="#e52222" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 1540 50 L 1540 110 M 1540 50 L 1480 50" stroke="#e52222" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 60 550 L 60 490 M 60 550 L 120 550" stroke="#e52222" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 1540 550 L 1540 490 M 1540 550 L 1480 550" stroke="#e52222" stroke-width="2" fill="none" opacity="0.6"/>
+  <text x="800" y="218" font-family="Arial Black, Arial, sans-serif" font-size="13" font-weight="bold" fill="#e52222" text-anchor="middle" letter-spacing="5" opacity="0.9">— SERVICES PAGE —</text>
+  <text x="800" y="306" font-family="Arial Black, Arial, sans-serif" font-size="80" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="4" opacity="0.9">HERO IMAGE</text>
+  <text x="800" y="370" font-family="monospace, sans-serif" font-size="22" fill="#e52222" text-anchor="middle" opacity="0.85">assets/images/hero/hero-services.jpg</text>
+  <rect x="280" y="400" width="1040" height="1" fill="#ffffff" opacity="0.1"/>
+  <text x="800" y="434" font-family="Arial, sans-serif" font-size="16" fill="#888888" text-anchor="middle" letter-spacing="1">Min. 1600 × 600 px  ·  Landscape  ·  Page header background</text>
+  <text x="800" y="465" font-family="Arial, sans-serif" font-size="15" fill="#666666" text-anchor="middle">Suggested: drain jetting / CCTV survey in progress / pipe repair / plumbing tools</text>
+</svg>
