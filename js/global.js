@@ -295,8 +295,7 @@
 
     // ─── CONTACT FORM ────────────────────────────────────
     // The form endpoint is configured via the data-endpoint attribute in
-    // pages/contact.html. While it is empty, submission is blocked with an
-    // honest message — success is NEVER simulated.
+    // pages/contact.html. Success is shown only when the provider confirms it.
     var form = document.getElementById('contactForm');
     if (form) {
       var statusEl = document.getElementById('formStatus');
@@ -366,10 +365,23 @@
           body: new FormData(form)
         }).then(function (response) {
           if (!response.ok) throw new Error('Request failed: ' + response.status);
+          return response.json();
+        }).then(function (result) {
+          var message = result && typeof result.message === 'string' ? result.message : '';
+          var requiresActivation = /activat|confirm|verify/i.test(message);
+          var confirmed = result && (result.success === true || result.success === 'true');
+
+          if (requiresActivation) {
+            showStatus('error', 'Your enquiry could not be confirmed as delivered because the form email needs activation. Please call or WhatsApp the team instead.');
+            return;
+          }
+
+          if (!confirmed) throw new Error('Submission was not confirmed');
+
           form.reset();
-          showStatus('success', 'Thanks — your message has been sent. We’ll get back to you as soon as we can.');
+          showStatus('success', 'Thanks. Your message has been sent to The Drain Team.');
         }).catch(function () {
-          showStatus('error', 'Sorry — your message could not be sent. Please try again in a few minutes.');
+          showStatus('error', 'Sorry, your message could not be sent. Please call or WhatsApp the team instead.');
         }).finally(function () {
           submitBtn.disabled = false;
           submitBtn.textContent = originalLabel;

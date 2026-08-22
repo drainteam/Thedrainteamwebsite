@@ -132,14 +132,14 @@
       <!--
         FORM ENDPOINT CONFIGURATION POINT
         =================================
-        Set data-endpoint below to the real form-handling URL when the client
-        supplies one (e.g. a Formspree/Basin URL or a serverless function).
-        The form must POST to that endpoint. While data-endpoint is empty,
-        js/global.js blocks submission and shows an honest "not configured"
-        message — it never fakes success.
-        [PLACEHOLDER: form delivery endpoint and destination email required from client]
+        The first FormSubmit submission may require email activation from
+        info@thedrainteam.ie / drainteam3@gmail.com.
       -->
-      <form id="contactForm" method="post" action="#contactForm" data-endpoint="" novalidate>
+      <form id="contactForm" method="post" action="https://formsubmit.co/ajax/info@thedrainteam.ie" data-endpoint="https://formsubmit.co/ajax/info@thedrainteam.ie" novalidate>
+        <input type="hidden" name="_subject" value="New enquiry from The Drain Team website">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_url" value="https://thedrainteam.ie/pages/contact.html">
         <div class="form-row">
           <div class="form-group">
             <label for="firstName">First Name</label>
@@ -192,6 +192,7 @@
         <div class="form-honeypot" hidden>
           <label for="company">Company</label>
           <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
         </div>
         <div class="form-submit">
           <button type="submit" class="btn btn-red form-submit-btn" disabled>Send Message</button>
