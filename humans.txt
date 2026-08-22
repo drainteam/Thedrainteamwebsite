@@ -1,0 +1,12 @@
+/* TEAM */
+Website by: NEEX Creative
+Website: https://www.neexcreative.com
+Client: The Drain Team
+
+/* SITE */
+Site name: The Drain Team
+URL: https://thedrainteam.ie
+Language: English
+Region: Ireland
+Stack: HTML, CSS, Vanilla JavaScript
+Hosting: Vercel
