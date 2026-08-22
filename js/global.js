@@ -1,226 +1,381 @@
-// ─── GLOBAL JS — The Drain Team ───────────────────────
+// ─── GLOBAL JS — The Drain Team ─────────────────────────
+// Behaviour only. All navigation, footer and content markup lives in the
+// HTML files so the site works fully with JavaScript disabled.
 
-document.addEventListener('DOMContentLoaded', () => {
+(function () {
+  'use strict';
 
-  // ─── INJECT NAVBAR ─────────────────────────────────
-  const isSubpage = window.location.pathname.includes('/pages/');
-  const base = isSubpage ? '../' : '';
+  var prefersReducedMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const navbarHTML = `
-    <nav class="navbar" id="navbar">
-      <a href="${base}index.html" class="nav-logo">
-        <img src="${base}assets/images/logos/Logo_%20White.png" alt="The Drain Team" class="nav-logo-img">
-      </a>
-      <div class="nav-links">
-        <a href="${base}index.html" class="nav-link">Home</a>
-        <a href="${base}pages/about.html" class="nav-link">About</a>
-        <a href="${base}pages/services.html" class="nav-link">Services</a>
-        <a href="${base}pages/contact.html" class="nav-link">Contact</a>
-        <a href="tel:+35318001234" class="nav-emergency">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.59a16 16 0 0 0 6.06 6.06l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          01 800 1234
-        </a>
-        <a href="${base}pages/contact.html" class="btn btn-red nav-cta">Get a Quote</a>
-      </div>
-      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-    <div class="nav-mobile" id="navMobile">
-      <a href="${base}index.html" class="nav-link">Home</a>
-      <a href="${base}pages/about.html" class="nav-link">About</a>
-      <a href="${base}pages/services.html" class="nav-link">Services</a>
-      <a href="${base}pages/contact.html" class="nav-link">Contact</a>
-      <a href="${base}pages/contact.html" class="btn btn-red nav-cta">Get a Quote</a>
-      <a href="tel:+35318001234" class="nav-emergency" style="color:rgba(255,255,255,0.7)">
-        Emergency: 01 800 1234
-      </a>
-    </div>
-  `;
-  document.body.insertAdjacentHTML('afterbegin', navbarHTML);
-
-  // ─── SKIP LINK ────────────────────────────────────
-  document.body.insertAdjacentHTML('afterbegin', `<a href="#main-content" class="skip-link">Skip to main content</a>`);
-
-  // ─── INJECT TICKER ────────────────────────────────
-  const items = [
-    '24/7 Emergency Plumbing', 'Blocked Drains', 'Leak Detection',
-    'Drain Unblocking', 'Pipe Repairs', 'CCTV Surveys', 'Water Systems',
-    'Bathroom Plumbing', 'Kitchen Plumbing', 'Serving All Dublin'
-  ];
-  const tickerContent = items.concat(items).map(t => `<span>${t}</span>`).join('');
-  const tickerHTML = `<div class="ticker" id="ticker"><div class="ticker-track">${tickerContent}</div></div>`;
-
-  // Insert ticker after navbar (in hero pages, before hero content)
-  const heroEl = document.querySelector('.hero');
-  const navEl  = document.getElementById('navbar');
-  if (heroEl) {
-    // For home page — ticker goes below hero
-    heroEl.insertAdjacentHTML('afterend', tickerHTML);
-  } else {
-    // For inner pages — ticker goes just below hero
-    const pageHero = document.querySelector('.page-hero');
-    if (pageHero) pageHero.insertAdjacentHTML('afterend', tickerHTML);
+  // Opt in to scroll-reveal animations only when JS runs, the browser
+  // supports IntersectionObserver and the user hasn't asked for reduced
+  // motion. Without the `js` class, content is simply visible.
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('js');
   }
 
-  // ─── INJECT FOOTER ────────────────────────────────
-  const footerHTML = `
-    <footer>
-      <div class="footer-content">
-        <div class="footer-top">
-          <div>
-            <img src="${base}assets/images/logos/Logo_%20White.png" alt="The Drain Team" class="footer-logo-img">
-            <p class="footer-tagline">Dublin's trusted plumbing & drainage specialists. Available 24/7 for emergency callouts across the city and surrounding counties.</p>
-            <div class="footer-contact-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.59a16 16 0 0 0 6.06 6.06l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              01 800 1234
-            </div>
-            <div class="footer-contact-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              info@thedrainteam.ie
-            </div>
-            <div class="footer-contact-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              Dublin City & Surrounding Counties
-            </div>
-          </div>
-          <div>
-            <p class="footer-col-title">Navigation</p>
-            <div class="footer-links">
-              <a href="${base}index.html">Home</a>
-              <a href="${base}pages/about.html">About Us</a>
-              <a href="${base}pages/services.html">Our Services</a>
-              <a href="${base}pages/contact.html">Contact</a>
-            </div>
-          </div>
-          <div>
-            <p class="footer-col-title">Services</p>
-            <div class="footer-links">
-              <a href="${base}pages/services.html">Drain Unblocking</a>
-              <a href="${base}pages/services.html">Leak Detection</a>
-              <a href="${base}pages/services.html">CCTV Surveys</a>
-              <a href="${base}pages/services.html">Pipe Repair</a>
-              <a href="${base}pages/services.html">Bathroom Plumbing</a>
-              <a href="${base}pages/services.html">Emergency Callout</a>
-            </div>
-          </div>
-          <div>
-            <p class="footer-col-title">Service Areas</p>
-            <div class="footer-links">
-              <a href="#">Dublin City</a>
-              <a href="#">South Dublin</a>
-              <a href="#">North Dublin</a>
-              <a href="#">Kildare</a>
-              <a href="#">Meath</a>
-              <a href="#">Wicklow</a>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p class="footer-copy">© ${new Date().getFullYear()} The Drain Team. All rights reserved. | <a href="https://www.thedrainteam.ie" style="color:inherit">thedrainteam.ie</a></p>
-          <p class="footer-credit">Site by <a href="https://neexcreative.com" target="_blank">Neex Creative</a></p>
-        </div>
-      </div>
-      <div class="footer-pipes-decoration" aria-hidden="true">
-        <img src="${base}assets/images/gallery/Pipes.png" alt="">
-      </div>
-    </footer>
-  `;
-  document.body.insertAdjacentHTML('beforeend', footerHTML);
+  document.addEventListener('DOMContentLoaded', function () {
 
-  // ─── ACTIVE NAV LINK ──────────────────────────────
-  const path = window.location.pathname;
-  document.querySelectorAll('.nav-link').forEach(link => {
-    if (link.href.includes(path.split('/').pop()) && path !== '/') {
-      link.classList.add('active');
+    // ─── HOMEPAGE WHATSAPP WIDGET ───────────────────────
+    var whatsappWidget = document.querySelector('.whatsapp-widget');
+    if (whatsappWidget) {
+      var whatsappToggle = whatsappWidget.querySelector('.whatsapp-widget__toggle');
+      var whatsappClose = whatsappWidget.querySelector('.whatsapp-widget__close');
+
+      document.documentElement.classList.add('whatsapp-enhanced');
+
+      var closeWhatsapp = function (returnFocus) {
+        whatsappWidget.classList.remove('is-open');
+        whatsappToggle.setAttribute('aria-expanded', 'false');
+        whatsappToggle.setAttribute('aria-label', 'Open WhatsApp chat prompt');
+        if (returnFocus) whatsappToggle.focus();
+      };
+
+      whatsappToggle.addEventListener('click', function (event) {
+        event.preventDefault();
+        var opening = !whatsappWidget.classList.contains('is-open');
+        whatsappWidget.classList.toggle('is-open', opening);
+        whatsappToggle.setAttribute('aria-expanded', opening ? 'true' : 'false');
+        whatsappToggle.setAttribute('aria-label', opening ? 'Close WhatsApp chat prompt' : 'Open WhatsApp chat prompt');
+      });
+
+      whatsappClose.addEventListener('click', function () {
+        closeWhatsapp(true);
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && whatsappWidget.classList.contains('is-open')) {
+          closeWhatsapp(true);
+        }
+      });
     }
-    if (path === '/' || path.endsWith('index.html')) {
-      document.querySelector('.nav-link[href*="index"]')?.classList.add('active');
+
+    // ─── NAVBAR SCROLL STATE ─────────────────────────────
+    var navbar = document.getElementById('navbar');
+    if (navbar) {
+      var onScroll = function () {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
     }
-  });
 
-  // ─── SCROLL: NAVBAR ──────────────────────────────
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
+    // ─── MOBILE MENU ─────────────────────────────────────
+    var hamburger = document.getElementById('hamburger');
+    var navMobile = document.getElementById('navMobile');
+
+    if (hamburger && navMobile) {
+      var closeMenu = function (returnFocus) {
+        navMobile.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open menu');
+        document.body.classList.remove('nav-open');
+        if (returnFocus) hamburger.focus();
+      };
+      var openMenu = function () {
+        navMobile.classList.add('open');
+        hamburger.classList.add('active');
+        hamburger.setAttribute('aria-expanded', 'true');
+        hamburger.setAttribute('aria-label', 'Close menu');
+        document.body.classList.add('nav-open');
+      };
+
+      hamburger.addEventListener('click', function () {
+        if (navMobile.classList.contains('open')) {
+          closeMenu(false);
+        } else {
+          openMenu();
+        }
+      });
+
+      // Close when a mobile navigation link is selected
+      navMobile.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { closeMenu(false); });
+      });
+
+      // Close with Escape and return focus to the toggle
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && navMobile.classList.contains('open')) {
+          closeMenu(true);
+        }
+      });
+
+      // Close when resizing up to the desktop layout
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 768 && navMobile.classList.contains('open')) {
+          closeMenu(false);
+        }
+      });
     }
-  }, { passive: true });
 
-  // Dark bg for inner pages
-  if (!document.querySelector('.hero')) {
-    navbar?.classList.add('dark-bg');
-  }
+    // ─── HOMEPAGE HERO ENTRANCE (GSAP, homepage only) ────
+    // Isolated, defensive: only runs if GSAP loaded, motion is allowed,
+    // and the Hero markup is present. Never throws on inner pages, where
+    // GSAP is not even loaded. Content has no inline/CSS hidden state, so
+    // if GSAP fails to load or this block errors, the Hero stays visible.
+    var initHomepageHeroAnimation = function () {
+      if (prefersReducedMotion) return;
+      if (typeof window.gsap === 'undefined') return;
 
-  // ─── HAMBURGER MENU ──────────────────────────────
-  const hamburger = document.getElementById('hamburger');
-  const navMobile = document.getElementById('navMobile');
+      var hero = document.querySelector('.hero');
+      if (!hero) return;
 
-  const closeMenu = () => {
-    navMobile?.classList.remove('open');
-    hamburger?.classList.remove('active');
-    hamburger?.setAttribute('aria-expanded', 'false');
-    hamburger?.setAttribute('aria-label', 'Open menu');
-    document.body.classList.remove('nav-open');
-  };
-  const openMenu = () => {
-    navMobile?.classList.add('open');
-    hamburger?.classList.add('active');
-    hamburger?.setAttribute('aria-expanded', 'true');
-    hamburger?.setAttribute('aria-label', 'Close menu');
-    document.body.classList.add('nav-open');
-  };
+      var title = hero.querySelector('.hero-title');
+      var sub = hero.querySelector('.hero-sub');
+      var actions = hero.querySelectorAll('.hero-actions a');
 
-  hamburger?.addEventListener('click', () => {
-    const isOpen = navMobile?.classList.contains('open');
-    if (isOpen) { closeMenu(); } else { openMenu(); }
-  });
+      var tl = window.gsap.timeline({ defaults: { ease: 'power2.out' } });
 
-  navMobile?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
+      if (title) tl.from(title, { opacity: 0, y: 20, duration: 0.5 });
+      if (sub) tl.from(sub, { opacity: 0, y: 16, duration: 0.4 }, '-=0.25');
+      if (actions.length) tl.from(actions, { y: 14, duration: 0.35, stagger: 0.08, clearProps: 'transform' }, '-=0.2');
+    };
+    initHomepageHeroAnimation();
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navMobile?.classList.contains('open')) {
-      closeMenu();
-      hamburger?.focus();
-    }
-  });
+    // HOMEPAGE COUNTING NUMBERS
+    var initCountingNumbers = function () {
+      var counters = document.querySelectorAll('.counting-number');
+      if (!counters.length) return;
 
-  // ─── SCROLL ANIMATIONS ───────────────────────────
-  const animEls = document.querySelectorAll('.animate-in');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+      var formatter = new Intl.NumberFormat(document.documentElement.lang || 'en');
+      var finalValue = function (counter) {
+        return (counter.getAttribute('data-count-prefix') || '') +
+          formatter.format(Number(counter.getAttribute('data-count-to')) || 0) +
+          (counter.getAttribute('data-count-suffix') || '');
+      };
+      var showFinalValue = function (counter) {
+        counter.textContent = finalValue(counter);
+        counter.setAttribute('data-count-complete', 'true');
+      };
+
+      if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        counters.forEach(showFinalValue);
+        return;
       }
-    });
-  }, { threshold: 0.12 });
 
-  animEls.forEach(el => observer.observe(el));
+      var animateCounter = function (counter) {
+        if (counter.getAttribute('data-count-complete') === 'true' ||
+            counter.getAttribute('data-counting') === 'true') return;
 
-  // ─── CONTACT FORM ────────────────────────────────
-  const form = document.getElementById('contactForm');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = 'Message Sent!';
-        form.querySelector('.form-success').style.display = 'block';
-        form.reset();
-        setTimeout(() => {
-          btn.textContent = 'Send Message';
-          btn.disabled = false;
-          form.querySelector('.form-success').style.display = 'none';
-        }, 5000);
-      }, 1200);
-    });
-  }
+        var from = Number(counter.getAttribute('data-count-from')) || 0;
+        var to = Number(counter.getAttribute('data-count-to')) || 0;
+        var prefix = counter.getAttribute('data-count-prefix') || '';
+        var suffix = counter.getAttribute('data-count-suffix') || '';
+        var duration = 1100;
+        var startTime;
 
-});
+        counter.setAttribute('data-counting', 'true');
+        counter.textContent = prefix + formatter.format(from) + suffix;
+
+        var update = function (timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var value = Math.round(from + (to - from) * eased);
+          counter.textContent = prefix + formatter.format(value) + suffix;
+
+          if (progress < 1) {
+            window.requestAnimationFrame(update);
+          } else {
+            counter.removeAttribute('data-counting');
+            showFinalValue(counter);
+          }
+        };
+        window.requestAnimationFrame(update);
+      };
+
+      var countingObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          countingObserver.unobserve(entry.target);
+          animateCounter(entry.target);
+        });
+      }, { threshold: 0.35 });
+
+      counters.forEach(function (counter) {
+        countingObserver.observe(counter);
+      });
+    };
+    initCountingNumbers();
+
+    // HOMEPAGE GOOGLE REVIEWS
+    var initGoogleReviews = function () {
+      var section = document.querySelector('[data-google-reviews]');
+      if (!section || typeof window.fetch !== 'function') return;
+
+      var summary = section.querySelector('[data-google-reviews-summary]');
+      var list = section.querySelector('[data-google-reviews-list]');
+      var googleLink = section.querySelector('[data-google-reviews-link]');
+      if (!summary || !list || !googleLink) return;
+
+      var renderStars = function (rating) {
+        var rounded = Math.max(0, Math.min(5, Math.round(rating)));
+        return '★★★★★'.slice(0, rounded) + '☆☆☆☆☆'.slice(0, 5 - rounded);
+      };
+      var addTextElement = function (parent, tagName, className, value) {
+        var element = document.createElement(tagName);
+        element.className = className;
+        element.textContent = value;
+        parent.appendChild(element);
+        return element;
+      };
+
+      window.fetch('/api/google-reviews', { headers: { 'Accept': 'application/json' } })
+        .then(function (response) {
+          if (!response.ok) throw new Error('Reviews unavailable');
+          return response.json();
+        })
+        .then(function (data) {
+          var rating = Number(data.rating);
+          var reviewCount = Number(data.reviewCount);
+          if (!Number.isFinite(rating) || rating <= 0 || rating > 5 ||
+              !Number.isFinite(reviewCount) || reviewCount < 1) return;
+
+          summary.textContent = '';
+          list.textContent = '';
+          addTextElement(summary, 'div', 'google-reviews-summary__rating', rating.toFixed(1));
+          var summaryStars = addTextElement(summary, 'div', 'google-reviews-summary__stars', renderStars(rating));
+          summaryStars.setAttribute('aria-label', rating.toFixed(1) + ' out of 5 stars');
+          addTextElement(summary, 'p', 'google-reviews-summary__count',
+            'Based on ' + new Intl.NumberFormat(document.documentElement.lang || 'en').format(reviewCount) + ' Google reviews');
+
+          var reviews = Array.isArray(data.reviews) ? data.reviews.slice(0, 3) : [];
+          reviews.forEach(function (review) {
+            var card = document.createElement('article');
+            card.className = 'google-review-card';
+            if (review.authorName) {
+              if (review.authorUri) {
+                var authorLink = addTextElement(card, 'a', 'google-review-card__author', review.authorName);
+                authorLink.href = review.authorUri;
+                authorLink.target = '_blank';
+                authorLink.rel = 'noopener noreferrer';
+              } else {
+                addTextElement(card, 'p', 'google-review-card__author', review.authorName);
+              }
+            }
+            var reviewRating = Number(review.rating);
+            if (Number.isFinite(reviewRating) && reviewRating >= 0 && reviewRating <= 5) {
+              var stars = addTextElement(card, 'div', 'google-review-card__stars', renderStars(reviewRating));
+              stars.setAttribute('aria-label', reviewRating + ' out of 5 stars');
+            }
+            if (review.text) addTextElement(card, 'p', 'google-review-card__text', review.text);
+            if (review.relativePublishTimeDescription) {
+              addTextElement(card, 'p', 'google-review-card__time', review.relativePublishTimeDescription);
+            }
+            list.appendChild(card);
+          });
+
+          if (data.googleMapsUri) {
+            googleLink.href = data.googleMapsUri;
+            googleLink.hidden = false;
+          }
+          section.hidden = false;
+        })
+        .catch(function () {
+          section.hidden = true;
+        });
+    };
+    initGoogleReviews();
+
+    // ─── SCROLL-REVEAL ANIMATIONS ────────────────────────
+    var animEls = document.querySelectorAll('.animate-in');
+    if (document.documentElement.classList.contains('js') && animEls.length) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      animEls.forEach(function (el) { observer.observe(el); });
+    }
+
+    // ─── CONTACT FORM ────────────────────────────────────
+    // The form endpoint is configured via the data-endpoint attribute in
+    // pages/contact.html. While it is empty, submission is blocked with an
+    // honest message — success is NEVER simulated.
+    var form = document.getElementById('contactForm');
+    if (form) {
+      var statusEl = document.getElementById('formStatus');
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var endpoint = (form.getAttribute('data-endpoint') || '').trim();
+      if (submitBtn) submitBtn.disabled = false;
+
+      var showStatus = function (type, message) {
+        if (!statusEl) return;
+        statusEl.textContent = message;
+        statusEl.classList.remove('form-status--success', 'form-status--error');
+        statusEl.classList.add('is-visible', 'form-status--' + type);
+      };
+
+      var setFieldError = function (field, hasError) {
+        var errorEl = document.getElementById(field.id + '-error');
+        field.setAttribute('aria-invalid', hasError ? 'true' : 'false');
+        if (errorEl) errorEl.hidden = !hasError;
+      };
+
+      var validate = function () {
+        var valid = true;
+        form.querySelectorAll('[required]').forEach(function (field) {
+          var value = field.value.trim();
+          var fieldValid = value.length > 0;
+          if (fieldValid && field.type === 'email') {
+            fieldValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+          }
+          setFieldError(field, !fieldValid);
+          if (!fieldValid && valid) {
+            field.focus();
+            valid = false;
+          }
+        });
+        return valid;
+      };
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (!submitBtn || submitBtn.disabled) return;
+
+        // Honeypot: silently drop obvious bot submissions
+        var honeypot = form.querySelector('#company');
+        if (honeypot && honeypot.value) return;
+
+        if (!validate()) {
+          showStatus('error', 'Please correct the highlighted fields and try again.');
+          return;
+        }
+
+        if (!endpoint) {
+          // No delivery endpoint configured yet — tell the truth.
+          showStatus('error',
+            'Sorry — online enquiries are not available yet. ' +
+            'Please try again later while we finish setting up this page.');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        var originalLabel = submitBtn.textContent;
+        submitBtn.textContent = 'Sending…';
+
+        fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        }).then(function (response) {
+          if (!response.ok) throw new Error('Request failed: ' + response.status);
+          form.reset();
+          showStatus('success', 'Thanks — your message has been sent. We’ll get back to you as soon as we can.');
+        }).catch(function () {
+          showStatus('error', 'Sorry — your message could not be sent. Please try again in a few minutes.');
+        }).finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        });
+      });
+    }
+
+  });
+})();

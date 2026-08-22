@@ -1,152 +1,260 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IE">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us — The Drain Team Dublin</title>
-  <meta name="description" content="Learn about The Drain Team — Dublin's trusted plumbing and drainage specialists since 2009. Meet our team of fully qualified engineers.">
+  <title>About The Drain Team | Dublin Drainage Specialists</title>
+  <meta name="description" content="The Drain Team is a Dublin-based drainage and plumbing service working with domestic and commercial customers across Dublin and surrounding areas.">
+  <link rel="canonical" href="https://thedrainteam.ie/pages/about.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#111111">
+
+  <meta property="og:locale" content="en_IE">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Drain Team">
+  <meta property="og:title" content="About The Drain Team | Dublin Drainage Specialists">
+  <meta property="og:description" content="A Dublin-based drainage and plumbing service for domestic and commercial customers.">
+  <meta property="og:url" content="https://thedrainteam.ie/pages/about.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About The Drain Team | Dublin Drainage Specialists">
+  <meta name="twitter:description" content="A Dublin-based drainage and plumbing service for domestic and commercial customers.">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/global.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "About The Drain Team",
+    "url": "https://thedrainteam.ie/pages/about.html",
+    "description": "About The Drain Team — a Dublin-based drainage and plumbing service for domestic and commercial customers.",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thedrainteam.ie/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://thedrainteam.ie/pages/about.html" }
+      ]
+    }
+  }
+  </script>
 </head>
-<body>
+<body class="about-page">
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <nav class="navbar dark-bg" id="navbar" aria-label="Main navigation">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/images/logos/Logo_%20White.png" alt="The Drain Team" class="nav-logo-img">
+    </a>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link" aria-current="page">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <!-- [PHONE TBC] Phone CTA (tel: link) to be restored here once a verified number is supplied -->
+    </div>
+    <a href="contact.html" class="btn btn-red nav-cta nav-cta--desktop">Request a Quote</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="../index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link" aria-current="page">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="contact.html" class="btn btn-red nav-cta">Request a Quote</a>
+    <!-- [PHONE TBC] Mobile emergency phone link to be restored once a verified number is supplied -->
+  </div>
+</header>
+
 <main id="main-content">
 
   <!-- PAGE HERO -->
   <section class="page-hero page-hero--about">
-    <p class="page-hero-eyebrow">Who We Are</p>
-    <h1 class="display-heading white page-hero-title">ABOUT<br>THE TEAM</h1>
-    <p class="page-hero-sub">A local Dublin company built on reliability, honesty and getting the job done right — first time, every time.</p>
+    <div class="about-hero-inner">
+      <h1 class="display-heading white page-hero-title">ABOUT THE<br>DRAIN TEAM</h1>
+      <p class="page-hero-sub">Straightforward drainage and plumbing support for homes and businesses.</p>
+    </div>
   </section>
 
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="../index.html">Home</a></li>
+      <li aria-current="page">About</li>
+    </ol>
+  </nav>
+
   <!-- STORY -->
-  <section class="about-story">
+  <section class="about-story" aria-labelledby="about-story-heading">
     <div class="animate-in">
-      <div style="aspect-ratio:4/5; background:#f2f2f2; overflow:hidden; margin-bottom:24px;">
-        <!-- ASSET: assets/images/about/van-branding.jpg — About story section, portrait 4:5 ratio -->
-        <img src="../assets/images/about/van-branding.jpg" alt="The Drain Team van" style="width:100%;height:100%;object-fit:cover;">
+      <div class="about-story-media">
+        <!-- ASSET: assets/images/about/van-branding.jpg — About story section, responsive landscape ratio.
+             [PLACEHOLDER: photograph of the client's actual branded van required — current image is a development preview] -->
+        <img src="../assets/images/about/van-branding.jpg" alt="A drainage team standing in front of a branded service van" loading="lazy" decoding="async" class="about-story-img">
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#e0e0e0;">
-        <div style="background:#fff;padding:32px 28px;">
-          <div style="font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:900;color:#e52222;line-height:1;">8k+</div>
-          <div style="font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#888;margin-top:6px;">Jobs Completed</div>
+      <!-- [PLACEHOLDER: verified number of completed jobs] -->
+      <!-- [PLACEHOLDER: verified Google rating and review count] -->
+      <!-- Statistic tiles hidden until the client verifies real figures. Structure preserved below. -->
+      <div class="about-stats" hidden aria-hidden="true">
+        <div class="about-stat">
+          <div class="about-stat-num"></div>
+          <div class="about-stat-label">Jobs Completed</div>
         </div>
-        <div style="background:#fff;padding:32px 28px;">
-          <div style="font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:900;color:#e52222;line-height:1;">4.9</div>
-          <div style="font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#888;margin-top:6px;">Google Rating</div>
+        <div class="about-stat">
+          <div class="about-stat-num"></div>
+          <div class="about-stat-label">Google Rating</div>
         </div>
       </div>
     </div>
     <div class="about-story-text animate-in delay-2">
-      <div class="section-label">Our Story</div>
-      <h2 class="display-heading dark">DUBLIN-BORN,<br>DUBLIN-BASED.</h2>
-      <p>The Drain Team was founded in 2009 by two qualified plumbing engineers who had grown tired of seeing Dublin homeowners overcharged for poor-quality drainage work. The idea was simple: build a company that shows up on time, charges a fair price, and doesn't leave until the job is done properly.</p>
-      <p>Fifteen years later, that same principle drives everything we do. We've grown from a two-van operation to a team of 12 qualified engineers covering Dublin city, county and surrounding areas — but the values haven't changed. You'll still get an honest quote upfront, a fully trained engineer at your door, and a job you can rely on.</p>
-      <p>We work with homeowners, landlords, letting agents, restaurants, offices and local authorities. From a blocked kitchen sink to a full drainage survey for a new commercial development — if it involves water moving through pipes in Dublin, we've handled it.</p>
-      <a href="../pages/contact.html" class="btn btn-red" style="margin-top:16px;">Get in Touch</a>
+      <h2 id="about-story-heading" class="display-heading dark">A PRACTICAL APPROACH<br>TO DRAINAGE WORK.</h2>
+      <!-- [PLACEHOLDER: verified founding story — founding year, founder details and company history required from client] -->
+      <p>The Drain Team provides practical drainage and plumbing support for residential and commercial properties.</p>
+      <p>We focus on understanding the problem clearly, explaining the work involved and keeping the process straightforward from first contact through to completion.</p>
+      <a href="contact.html" class="btn btn-red about-story-cta">Get in Touch</a>
     </div>
   </section>
 
-  <!-- VALUES -->
-  <section class="about-values">
-    <div class="animate-in" style="text-align:center;margin-bottom:60px;">
-      <div class="section-label" style="justify-content:center;">How We Work</div>
-      <h2 class="display-heading dark about-values-title">OUR VALUES</h2>
-    </div>
-    <div class="values-grid">
-      <div class="value-card animate-in">
-        <div class="value-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <h3 class="value-title">Honesty</h3>
-        <p class="value-desc">We'll tell you exactly what the problem is and what it costs to fix. If you don't need a repair, we'll say so.</p>
+  <!-- HOW WE WORK -->
+  <section class="about-values" aria-labelledby="about-values-heading">
+    <div class="about-values-inner">
+      <div class="animate-in about-values-header">
+        <h2 id="about-values-heading" class="display-heading dark about-values-title">HOW WE WORK</h2>
       </div>
-      <div class="value-card animate-in delay-1">
-        <div class="value-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
-        </div>
-        <h3 class="value-title">Speed</h3>
-        <p class="value-desc">Drainage problems don't wait. Neither do we. Our team is dispatched quickly, and most jobs are resolved on the first visit.</p>
-      </div>
-      <div class="value-card animate-in delay-2">
-        <div class="value-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3 class="value-title">Quality</h3>
-        <p class="value-desc">We use professional-grade tools and materials on every job. Our workmanship is guaranteed — if something isn't right, we come back.</p>
-      </div>
-      <div class="value-card animate-in delay-3">
-        <div class="value-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3 class="value-title">Respect</h3>
-        <p class="value-desc">We treat your home as if it were our own. Our team is uniformed, tidy and will clean up fully after every job, no exceptions.</p>
+      <div class="about-work-list">
+        <article class="about-work-item animate-in">
+          <span class="about-work-number">01</span>
+          <h3 class="about-work-title">Clear Communication</h3>
+          <p>We explain the issue and the proposed work clearly before anything starts.</p>
+        </article>
+        <article class="about-work-item animate-in delay-1">
+          <span class="about-work-number">02</span>
+          <h3 class="about-work-title">Practical Solutions</h3>
+          <p>The work stays focused on the actual drainage or plumbing problem.</p>
+        </article>
+        <article class="about-work-item animate-in delay-2">
+          <span class="about-work-number">03</span>
+          <h3 class="about-work-title">Domestic &amp; Commercial</h3>
+          <p>Support for residential and commercial properties.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- TEAM -->
-  <section class="about-team">
-    <div class="animate-in">
-      <div class="section-label" style="color:rgba(229,34,34,0.9)">The People</div>
-      <h2 class="display-heading white about-team-title">MEET THE<br>ENGINEERS</h2>
-      <p class="about-team-sub">Fully qualified, Plumbing Council registered and committed to doing excellent work.</p>
+  <!-- Real Sean / Alan / team content required before this section can be enabled. -->
+  <!-- Grid structure preserved for future use; hidden because current cards used stock illustrations with fictional names. -->
+  <section class="about-team" hidden aria-hidden="true">
+    <div>
+      <div class="section-label section-label--on-dark">The People</div>
+      <h2 class="display-heading white about-team-title">MEET THE<br>TEAM</h2>
+      <p class="about-team-sub"></p>
     </div>
     <div class="team-grid">
-      <!-- ASSET: assets/images/team/team-brian-connolly.svg — portrait 3:4 ratio -->
-      <div class="team-card animate-in">
-        <div class="team-card-image">
-          <img src="../assets/images/team/team-brian-connolly.svg" alt="Brian Connolly">
-        </div>
-        <div class="team-card-info">
-          <div class="team-card-name">Brian Connolly</div>
-          <div class="team-card-role">Founder & Lead Engineer</div>
-        </div>
-      </div>
-      <!-- ASSET: assets/images/team/team-padraic-walsh.svg — portrait 3:4 ratio -->
-      <div class="team-card animate-in delay-1">
-        <div class="team-card-image">
-          <img src="../assets/images/team/team-padraic-walsh.svg" alt="Pádraic Walsh">
-        </div>
-        <div class="team-card-info">
-          <div class="team-card-name">Pádraic Walsh</div>
-          <div class="team-card-role">Co-Founder & Senior Engineer</div>
-        </div>
-      </div>
-      <!-- ASSET: assets/images/team/team-aoife-byrne.svg — portrait 3:4 ratio -->
-      <div class="team-card animate-in delay-2">
-        <div class="team-card-image">
-          <img src="../assets/images/team/team-aoife-byrne.svg" alt="Aoife Byrne">
-        </div>
-        <div class="team-card-info">
-          <div class="team-card-name">Aoife Byrne</div>
-          <div class="team-card-role">Operations Manager</div>
-        </div>
-      </div>
-      <!-- ASSET: assets/images/team/team-ciaran-murphy.svg — portrait 3:4 ratio -->
-      <div class="team-card animate-in delay-3">
-        <div class="team-card-image">
-          <img src="../assets/images/team/team-ciaran-murphy.svg" alt="Ciarán Murphy">
-        </div>
-        <div class="team-card-info">
-          <div class="team-card-name">Ciarán Murphy</div>
-          <div class="team-card-role">Drainage Engineer</div>
-        </div>
-      </div>
+      <!-- [PLACEHOLDER: team member card — real name, role and photograph] -->
+      <!-- [PLACEHOLDER: team member card — real name, role and photograph] -->
+      <!-- [PLACEHOLDER: team member card — real name, role and photograph] -->
+      <!-- [PLACEHOLDER: team member card — real name, role and photograph] -->
     </div>
   </section>
 
   <!-- EMERGENCY BANNER -->
+  <!-- [PLACEHOLDER: confirmed emergency availability and verified phone number required before 24/7 claims and tel: link can be restored] -->
   <div class="emergency-banner">
     <div class="emergency-left">
-      <p class="emergency-label">24/7 Emergency Plumbing</p>
-      <h2 class="display-heading white emergency-title">NEED US<br>TODAY?</h2>
+      <p class="emergency-label">Urgent Drainage Problem?</p>
+      <h2 class="display-heading white emergency-title">NEED HELP<br>TODAY?</h2>
     </div>
-    <div>
-      <p style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:8px;">We're always available</p>
-      <a href="tel:+35318001234" class="emergency-number">01 800 1234</a>
+    <div class="emergency-right">
+      <p class="emergency-note">Contact The Drain Team to check availability</p>
+      <a href="contact.html" class="btn btn-outline emergency-cta">Contact The Team</a>
     </div>
   </div>
 
 </main>
-  <script src="../js/global.js"></script>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-top">
+      <div>
+        <img src="../assets/images/logos/Logo_%20White.png" alt="The Drain Team" class="footer-logo-img">
+        <p class="footer-tagline">Drainage and plumbing services for homes and businesses across Dublin and surrounding areas.</p>
+        <!-- [PHONE TBC] -->
+        <!-- [EMAIL TBC] -->
+        <!-- [WHATSAPP TBC] -->
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Dublin &amp; Surrounding Areas
+        </div>
+        <div class="footer-trust-badge">
+          <span class="footer-trust-badge__dot" aria-hidden="true"></span>
+          <span>100% Irish Family Business</span>
+          <span class="irish-flag" role="img" aria-label="Ireland">
+            <span class="irish-flag__green"></span><span class="irish-flag__white"></span><span class="irish-flag__orange"></span>
+          </span>
+        </div>
+        <div class="footer-social" hidden data-placeholder="Verified social media URLs required">
+          <!-- [PLACEHOLDER: verified Facebook URL required before replacing this icon with a link] -->
+          <span class="footer-social__link" role="img" aria-label="Facebook link unavailable">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M14 8.5V6.8c0-.8.5-1 1-1h2.8V2.1L14.7 2C11.2 2 10 4.1 10 6.5v2H7v4h3V22h4v-9.5h3.2l.6-4H14Z"/></svg>
+          </span>
+          <!-- [PLACEHOLDER: verified Instagram URL required before replacing this icon with a link] -->
+          <span class="footer-social__link" role="img" aria-label="Instagram link unavailable">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </span>
+        </div>
+      </div>
+      <nav aria-label="Footer navigation">
+        <p class="footer-col-title">Navigation</p>
+        <div class="footer-links">
+          <a href="../index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Our Services</a>
+          <a href="contact.html">Contact</a>
+          <a href="contact.html">Request a Quote</a>
+        </div>
+      </nav>
+      <nav aria-label="Services">
+        <p class="footer-col-title">Services</p>
+        <div class="footer-links">
+          <a href="services.html#drain-unblocking">Drain Unblocking</a>
+          <a href="services.html#drain-cleaning">Drain Cleaning</a>
+          <a href="services.html#cctv-drain-surveys">CCTV Drain Surveys</a>
+          <a href="services.html#emergency-drainage">Emergency Drainage</a>
+          <a href="services.html#drain-repairs">Drain Repairs</a>
+          <a href="services.html#maintenance">Maintenance</a>
+        </div>
+      </nav>
+      <div>
+        <p class="footer-col-title">Service Areas</p>
+        <!-- Plain text — no dedicated location pages exist.
+             [PLACEHOLDER: confirmed coverage of Kildare, Meath and Wicklow required before listing those counties] -->
+        <ul class="footer-links footer-areas">
+          <li>Dublin City</li>
+          <li>North Dublin</li>
+          <li>South Dublin</li>
+          <li>West Dublin</li>
+          <li>Surrounding Areas</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 The Drain Team. All rights reserved.</p>
+      <p class="footer-credit">Site by <a href="https://neexcreative.com" target="_blank" rel="noopener noreferrer">Neex Creative</a></p>
+    </div>
+  </div>
+  <div class="footer-pipes-decoration" aria-hidden="true">
+    <img src="../assets/images/gallery/Pipes.png" alt="" loading="lazy" decoding="async">
+  </div>
+</footer>
+
 </body>
 </html>

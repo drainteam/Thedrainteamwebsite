@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | The Drain Team</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/global.js" defer></script>
+  <!-- Self-contained: root-absolute links only, so this page works from any URL depth. -->
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111111;
+      color: #ffffff;
+      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+      text-align: center;
+      padding: 24px;
+    }
+    .error-page { width: 100%; }
+    .error-footer { margin-top: 32px; color: rgba(255,255,255,0.65); }
+    .error-footer p { margin-bottom: 12px; }
+    .footer-social { display: none !important; }
+    .code {
+      font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+      font-size: clamp(96px, 20vw, 180px);
+      font-weight: 900;
+      line-height: 1;
+      color: #e52222;
+    }
+    h1 {
+      font-size: clamp(20px, 4vw, 32px);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 16px 0 12px;
+    }
+    p { color: rgba(255,255,255,0.7); margin-bottom: 32px; }
+    .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .actions a.btn {
+      display: inline-block;
+      padding: 14px 28px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      color: #ffffff;
+    }
+    .actions .btn-red { background: #e52222; border: 2px solid #e52222; }
+    .actions .btn-red:hover, .actions .btn-red:focus-visible { background: #9b1508; border-color: #9b1508; }
+    .actions .btn-outline { background: transparent; border: 2px solid rgba(255,255,255,0.5); }
+    .actions .btn-outline:hover, .actions .btn-outline:focus-visible { background: #ffffff; color: #111111; }
+    a:focus-visible { outline: 2px solid #e52222; outline-offset: 3px; }
+    @media (max-width: 480px) {
+      .actions { flex-direction: column; align-items: stretch; }
+      .actions a.btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header>
+    <nav class="navbar dark-bg" id="navbar" aria-label="Main navigation">
+      <a href="/index.html" class="nav-logo">
+        <img src="/assets/images/logos/Logo_%20White.png" alt="The Drain Team" class="nav-logo-img">
+      </a>
+      <div class="nav-links">
+        <a href="/index.html" class="nav-link">Home</a>
+        <a href="/pages/about.html" class="nav-link">About</a>
+        <a href="/pages/services.html" class="nav-link">Services</a>
+        <a href="/pages/contact.html" class="nav-link">Contact</a>
+      </div>
+      <a href="/pages/contact.html" class="btn btn-red nav-cta nav-cta--desktop">Request a Quote</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="nav-mobile" id="navMobile">
+      <a href="/index.html" class="nav-link">Home</a>
+      <a href="/pages/about.html" class="nav-link">About</a>
+      <a href="/pages/services.html" class="nav-link">Services</a>
+      <a href="/pages/contact.html" class="nav-link">Contact</a>
+      <a href="/pages/contact.html" class="btn btn-red nav-cta">Request a Quote</a>
+    </div>
+  </header>
+  <div class="error-page">
+  <main id="main-content">
+    <div class="code" aria-hidden="true">404</div>
+    <h1>Page Not Found</h1>
+    <p>The page you're looking for doesn't exist or has moved.</p>
+    <div class="actions">
+      <a class="btn btn-red" href="/index.html">Back to Home</a>
+      <a class="btn btn-outline" href="/pages/services.html">View Services</a>
+      <a class="btn btn-outline" href="/pages/contact.html">Contact The Team</a>
+    </div>
+  </main>
+  <footer class="error-footer">
+    <p>The Drain Team &mdash; Dublin drainage services</p>
+    <div class="footer-trust-badge">
+      <span class="footer-trust-badge__dot" aria-hidden="true"></span>
+      <span>100% Irish Family Business</span>
+      <span class="irish-flag" role="img" aria-label="Ireland">
+        <span class="irish-flag__green"></span><span class="irish-flag__white"></span><span class="irish-flag__orange"></span>
+      </span>
+    </div>
+    <div class="footer-social" hidden data-placeholder="Verified social media URLs required">
+      <!-- [PLACEHOLDER: verified Facebook URL required] -->
+      <!-- [PLACEHOLDER: verified Instagram URL required] -->
+      <!-- [PLACEHOLDER: verified LinkedIn URL required] -->
+    </div>
+  </footer>
+  </div>
+</body>
+</html>
