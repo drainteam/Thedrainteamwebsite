@@ -2,7 +2,12 @@
 
 module.exports = async function handler(request, response) {
   response.setHeader('Content-Type', 'application/json; charset=utf-8');
-  response.setHeader('Cache-Control', 's-maxage=21600, stale-while-revalidate=86400');
+
+  var requestedCacheSeconds = Number.parseInt(process.env.GOOGLE_REVIEWS_CACHE_SECONDS, 10);
+  var cacheSeconds = Number.isFinite(requestedCacheSeconds)
+    ? Math.max(60, Math.min(requestedCacheSeconds, 86400))
+    : 3600;
+  response.setHeader('Cache-Control', 's-maxage=' + cacheSeconds + ', stale-while-revalidate=86400');
 
   if (request.method && request.method !== 'GET') {
     response.setHeader('Allow', 'GET');
@@ -13,7 +18,11 @@ module.exports = async function handler(request, response) {
   var placeId = process.env.GOOGLE_PLACE_ID;
 
   if (!apiKey || !placeId) {
-    return response.status(503).json({ error: 'Google reviews are not configured.' });
+    return response.status(200).json({
+      ok: false,
+      configured: false,
+      message: 'Google Reviews are not connected yet.'
+    });
   }
 
   try {
@@ -26,7 +35,11 @@ module.exports = async function handler(request, response) {
     });
 
     if (!googleResponse.ok) {
-      return response.status(502).json({ error: 'Google reviews are temporarily unavailable.' });
+      return response.status(502).json({
+        ok: false,
+        configured: true,
+        message: 'Google Reviews could not be loaded right now.'
+      });
     }
 
     var place = await googleResponse.json();
@@ -34,22 +47,26 @@ module.exports = async function handler(request, response) {
       var author = review.authorAttribution || {};
       return {
         authorName: author.displayName || '',
-        authorUri: author.uri || '',
         rating: typeof review.rating === 'number' ? review.rating : null,
         text: review.text && review.text.text ? review.text.text : '',
-        relativePublishTimeDescription: review.relativePublishTimeDescription || '',
-        publishTime: review.publishTime || ''
+        relativeTimeDescription: review.relativePublishTimeDescription || ''
       };
     }) : [];
 
     return response.status(200).json({
+      ok: true,
+      configured: true,
       businessName: place.displayName && place.displayName.text ? place.displayName.text : '',
       rating: typeof place.rating === 'number' ? place.rating : null,
       reviewCount: Number.isFinite(place.userRatingCount) ? place.userRatingCount : null,
-      googleMapsUri: place.googleMapsUri || '',
+      googleMapsUrl: place.googleMapsUri || '',
       reviews: reviews
     });
   } catch (error) {
-    return response.status(502).json({ error: 'Google reviews are temporarily unavailable.' });
+    return response.status(502).json({
+      ok: false,
+      configured: true,
+      message: 'Google Reviews could not be loaded right now.'
+    });
   }
 };

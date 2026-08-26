@@ -27,6 +27,15 @@ Required before implementation:
 
 Do not add Google Analytics, Google Tag Manager, or `gtag.js` until the real Measurement ID and ownership details are confirmed.
 
+### Google Analytics 4 implementation
+
+- GA4 Measurement ID: `G-M5CYLFQ51L`
+- Installed directly using the Google tag / `gtag.js`
+- Added to all public pages
+- No Google Tag Manager installed
+- No conversion events configured yet
+- Next optional step: configure conversion tracking for successful form submissions and WhatsApp clicks
+
 ## 3. Google Business Profile
 
 Current status: verification pending; Google may require video verification.
@@ -40,17 +49,17 @@ Current status: verification pending; Google may require video verification.
 - [ ] Do not use AI-generated images as business-verification evidence.
 - [ ] Later, collect the verified Google Place ID for a Google Reviews integration.
 
-## 4. Google Reviews API — Later Phase
+## 4. Google Reviews API Implementation
 
-Do not implement this integration during launch preparation.
+The frontend calls the server-side `/api/google-reviews` endpoint. The endpoint requires these Vercel Environment Variables:
 
-It will require:
-
-- [ ] A verified Google Business Profile.
-- [ ] The correct Google Place ID.
-- [ ] A restricted Google Places API key.
-- [ ] A server-side endpoint that keeps the API key private.
-- [ ] Confirmation that no API key is included in frontend HTML or JavaScript.
+- [ ] `GOOGLE_PLACES_API_KEY` — a restricted Google Places API key.
+- [ ] `GOOGLE_PLACE_ID` — the verified Google Business Profile Place ID.
+- [ ] `GOOGLE_REVIEWS_CACHE_SECONDS` — optional cache duration; defaults to 3600 seconds.
+- [ ] Add the variables for the required Vercel environments and redeploy after saving them.
+- [ ] Confirm the Google Business Profile is public and verified before expecting reliable review data.
+- [ ] Confirm no API key appears in frontend HTML or JavaScript.
+- [ ] Keep the honest empty state visible; never enable the section with fake reviews, ratings, or counts.
 
 ## 5. Post-launch Checks
 

@@ -200,15 +200,16 @@
     };
     initCountingNumbers();
 
-    // HOMEPAGE GOOGLE REVIEWS
+    // GOOGLE REVIEWS — renders only data returned by the server-side endpoint
     var initGoogleReviews = function () {
       var section = document.querySelector('[data-google-reviews]');
       if (!section || typeof window.fetch !== 'function') return;
 
       var summary = section.querySelector('[data-google-reviews-summary]');
       var list = section.querySelector('[data-google-reviews-list]');
+      var empty = section.querySelector('[data-google-reviews-empty]');
       var googleLink = section.querySelector('[data-google-reviews-link]');
-      if (!summary || !list || !googleLink) return;
+      if (!summary || !list || !empty || !googleLink) return;
 
       var renderStars = function (rating) {
         var rounded = Math.max(0, Math.min(5, Math.round(rating)));
@@ -222,59 +223,77 @@
         return element;
       };
 
+      var showEmpty = function (message) {
+        empty.textContent = message;
+        empty.hidden = false;
+      };
+
+      showEmpty('Loading Google reviews…');
+
       window.fetch('/api/google-reviews', { headers: { 'Accept': 'application/json' } })
         .then(function (response) {
           if (!response.ok) throw new Error('Reviews unavailable');
           return response.json();
         })
         .then(function (data) {
+          if (!data || data.ok !== true) {
+            showEmpty(data && data.configured === false
+              ? 'Google reviews are being connected. Please check back soon.'
+              : 'Google reviews could not be loaded right now.');
+            return;
+          }
+
           var rating = Number(data.rating);
           var reviewCount = Number(data.reviewCount);
-          if (!Number.isFinite(rating) || rating <= 0 || rating > 5 ||
-              !Number.isFinite(reviewCount) || reviewCount < 1) return;
-
           summary.textContent = '';
           list.textContent = '';
-          addTextElement(summary, 'div', 'google-reviews-summary__rating', rating.toFixed(1));
-          var summaryStars = addTextElement(summary, 'div', 'google-reviews-summary__stars', renderStars(rating));
-          summaryStars.setAttribute('aria-label', rating.toFixed(1) + ' out of 5 stars');
-          addTextElement(summary, 'p', 'google-reviews-summary__count',
-            'Based on ' + new Intl.NumberFormat(document.documentElement.lang || 'en').format(reviewCount) + ' Google reviews');
+
+          if (Number.isFinite(rating) && rating > 0 && rating <= 5 &&
+              Number.isFinite(reviewCount) && reviewCount >= 0) {
+            addTextElement(summary, 'div', 'google-reviews-summary__rating', rating.toFixed(1));
+            var summaryStars = addTextElement(summary, 'div', 'google-reviews-summary__stars', renderStars(rating));
+            summaryStars.setAttribute('aria-label', rating.toFixed(1) + ' out of 5 stars');
+            addTextElement(summary, 'p', 'google-reviews-summary__count',
+              'Based on ' + new Intl.NumberFormat(document.documentElement.lang || 'en').format(reviewCount) + ' Google reviews');
+          }
 
           var reviews = Array.isArray(data.reviews) ? data.reviews.slice(0, 3) : [];
           reviews.forEach(function (review) {
             var card = document.createElement('article');
             card.className = 'google-review-card';
-            if (review.authorName) {
-              if (review.authorUri) {
-                var authorLink = addTextElement(card, 'a', 'google-review-card__author', review.authorName);
-                authorLink.href = review.authorUri;
-                authorLink.target = '_blank';
-                authorLink.rel = 'noopener noreferrer';
-              } else {
-                addTextElement(card, 'p', 'google-review-card__author', review.authorName);
-              }
-            }
+            if (review.authorName) addTextElement(card, 'p', 'google-review-card__author', review.authorName);
             var reviewRating = Number(review.rating);
             if (Number.isFinite(reviewRating) && reviewRating >= 0 && reviewRating <= 5) {
               var stars = addTextElement(card, 'div', 'google-review-card__stars', renderStars(reviewRating));
               stars.setAttribute('aria-label', reviewRating + ' out of 5 stars');
             }
             if (review.text) addTextElement(card, 'p', 'google-review-card__text', review.text);
-            if (review.relativePublishTimeDescription) {
-              addTextElement(card, 'p', 'google-review-card__time', review.relativePublishTimeDescription);
+            if (review.relativeTimeDescription) {
+              addTextElement(card, 'p', 'google-review-card__time', review.relativeTimeDescription);
             }
             list.appendChild(card);
           });
 
-          if (data.googleMapsUri) {
-            googleLink.href = data.googleMapsUri;
-            googleLink.hidden = false;
+          if (reviews.length) {
+            empty.hidden = true;
+          } else {
+            showEmpty('Google reviews will appear here once available.');
           }
-          section.hidden = false;
+
+          if (data.googleMapsUrl) {
+            try {
+              var mapsUrl = new URL(data.googleMapsUrl);
+              if (mapsUrl.protocol === 'https:') {
+                googleLink.href = mapsUrl.href;
+                googleLink.hidden = false;
+              }
+            } catch (error) {
+              googleLink.hidden = true;
+            }
+          }
         })
         .catch(function () {
-          section.hidden = true;
+          showEmpty('Google reviews could not be loaded right now.');
         });
     };
     initGoogleReviews();

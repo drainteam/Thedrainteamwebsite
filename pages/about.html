@@ -47,6 +47,14 @@
     }
   }
   </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5CYLFQ51L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M5CYLFQ51L');
+  </script>
 </head>
 <body class="about-page">
 
@@ -88,14 +96,6 @@
       <p class="page-hero-sub">Straightforward drainage and plumbing support for homes and businesses.</p>
     </div>
   </section>
-
-  <!-- BREADCRUMB -->
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <ol>
-      <li><a href="../index.html">Home</a></li>
-      <li aria-current="page">About</li>
-    </ol>
-  </nav>
 
   <!-- STORY -->
   <section class="about-story" aria-labelledby="about-story-heading">
@@ -171,18 +171,25 @@
     </div>
   </section>
 
-  <!-- EMERGENCY BANNER -->
-  <!-- [PLACEHOLDER: confirmed emergency availability and verified phone number required before 24/7 claims and tel: link can be restored] -->
-  <div class="emergency-banner">
-    <div class="emergency-left">
-      <p class="emergency-label">Urgent Drainage Problem?</p>
-      <h2 class="display-heading white emergency-title">NEED HELP<br>TODAY?</h2>
+  <!-- GOOGLE REVIEWS — visible with an honest fallback until verified data is connected -->
+  <section class="google-reviews-section" aria-labelledby="googleReviewsTitleAbout" data-google-reviews>
+    <div class="container google-reviews-section__inner">
+      <div class="google-reviews-section__top">
+        <div class="google-reviews-section__header">
+          <div class="section-label section-label--on-dark">Google Reviews</div>
+          <h2 id="googleReviewsTitleAbout" class="display-heading white">What Customers Say About The Drain Team</h2>
+          <p class="google-reviews-section__intro">Real Google reviews will appear here once The Drain Team’s Google Business Profile is live and connected.</p>
+        </div>
+        <div class="google-reviews-summary" data-google-reviews-summary></div>
+      </div>
+      <div class="google-reviews-grid" data-google-reviews-list></div>
+      <p class="google-reviews-empty" data-google-reviews-empty role="status" aria-live="polite">Google reviews are being connected. Please check back soon.</p>
+      <div class="google-reviews-section__footer">
+        <span class="google-reviews-attribution">Reviews from Google</span>
+        <a class="google-reviews-link" data-google-reviews-link target="_blank" rel="noopener noreferrer" hidden>View on Google</a>
+      </div>
     </div>
-    <div class="emergency-right">
-      <p class="emergency-note">Contact The Drain Team to check availability</p>
-      <a href="contact.html" class="btn btn-outline emergency-cta">Contact The Team</a>
-    </div>
-  </div>
+  </section>
 
 </main>
 
@@ -255,9 +262,6 @@
       <p class="footer-copy">© 2026 The Drain Team. All rights reserved.</p>
       <p class="footer-credit">Site by <a href="https://neexcreative.com" target="_blank" rel="noopener noreferrer">Neex Creative</a></p>
     </div>
-  </div>
-  <div class="footer-pipes-decoration" aria-hidden="true">
-    <img src="../assets/images/gallery/Pipes.png" alt="" loading="lazy" decoding="async">
   </div>
 </footer>
 
