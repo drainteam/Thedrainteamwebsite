@@ -63,19 +63,16 @@ textarea:focus-visible {
 body.nav-open { overflow: hidden; }
 
 /* Temporary Coming Soon holding page */
-body.coming-soon-active {
-  min-width: 320px;
-  min-height: 100vh;
-  min-height: 100svh;
-  overflow: hidden;
-  background: var(--white);
-}
+html.coming-soon-active,
+body.coming-soon-active,
 .coming-soon-page,
 .coming-soon-picture {
   display: block;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  height: 100svh;
+  max-width: none;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
   background: var(--white);
 }
@@ -83,7 +80,7 @@ body.coming-soon-active {
   width: 100%;
   height: 100%;
   max-width: none;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 .site-content--hidden-temporary {
