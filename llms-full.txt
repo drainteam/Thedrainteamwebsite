@@ -1,6 +1,6 @@
 # The Drain Team
 
-The Drain Team provides drainage and plumbing services for homes and businesses. Its primary local focus is Dublin, and its stated service area is Ireland.
+The Drain Team provides drainage services for homes and businesses. Its primary local focus is Dublin, and its stated service area is Ireland. Groundworks is a secondary business focus.
 
 ## Services
 
@@ -12,7 +12,6 @@ The Drain Team provides drainage and plumbing services for homes and businesses.
 - Domestic Drainage
 - Commercial Drainage
 - Drain Maintenance
-- Plumbing Support
 
 ## Contact
 
@@ -23,10 +22,10 @@ Website: https://thedrainteam.ie
 
 ## Pages
 
-- Home — overview of The Drain Team and its drainage and plumbing services: https://thedrainteam.ie/
-- Services — summary of available drainage and plumbing support: https://thedrainteam.ie/pages/services.html
-- Contact — enquiry form and contact options: https://thedrainteam.ie/pages/contact.html
-- About — information about The Drain Team and the customers it supports: https://thedrainteam.ie/pages/about.html
+- Home: overview of The Drain Team and its drainage services: https://thedrainteam.ie/
+- Services: summary of available drainage support: https://thedrainteam.ie/pages/services.html
+- Contact: enquiry form and contact options: https://thedrainteam.ie/pages/contact.html
+- About: information about The Drain Team and the customers it supports: https://thedrainteam.ie/pages/about.html
 
 ## Accuracy note
 

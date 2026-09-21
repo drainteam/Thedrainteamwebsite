@@ -63,7 +63,7 @@ rendered publicly.
 - [ ] Licences
 - [ ] Safe Pass confirmation
 - [ ] CIRI confirmation
-- [ ] Plumbing or drainage certifications
+- [ ] Drainage certifications
 
 ## Guarantees and pricing claims
 

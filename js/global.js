@@ -369,7 +369,7 @@
         if (!endpoint) {
           // No delivery endpoint configured yet — tell the truth.
           showStatus('error',
-            'Sorry — online enquiries are not available yet. ' +
+            'Sorry, online enquiries are not available yet. ' +
             'Please try again later while we finish setting up this page.');
           return;
         }

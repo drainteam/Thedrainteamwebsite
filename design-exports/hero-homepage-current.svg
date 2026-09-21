@@ -28,13 +28,13 @@
   </g>
   <g id="hero-content">
     <g id="hero-title" fill="#ffffff" font-family="Impact, Arial Black, sans-serif" font-size="102" font-weight="900" letter-spacing="-1.5">
-      <text x="48" y="326">DRAINAGE &amp;</text>
-      <text x="48" y="426">PLUMBING SERVICES</text>
+      <text x="48" y="326">DRAINAGE</text>
+      <text x="48" y="426">SERVICES</text>
       <text x="48" y="526">ACROSS DUBLIN</text>
     </g>
     <g id="hero-subtitle" fill="#ffffff" fill-opacity="0.78" font-family="Arial, Helvetica, sans-serif" font-size="17">
-      <text x="48" y="580">Professional support for blocked drains, drain repairs, CCTV</text>
-      <text x="48" y="609">surveys and plumbing issues for homes and businesses.</text>
+      <text x="48" y="580">Professional support for blocked drains, drain repairs and CCTV</text>
+      <text x="48" y="609">surveys for homes and businesses.</text>
     </g>
     <g id="hero-ctas" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" letter-spacing="1.3" text-anchor="middle">
       <rect x="48" y="668" width="217" height="50" rx="1" fill="#e52222"/>

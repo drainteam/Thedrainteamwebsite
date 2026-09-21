@@ -43,7 +43,7 @@ Current status: verification pending; Google may require video verification.
 - [ ] Complete Google Business Profile verification using genuine business evidence.
 - [ ] Once verified and live, set the website URL to `https://thedrainteam.ie`.
 - [ ] Add genuine, current business photographs.
-- [ ] Add the verified drainage and plumbing services offered by The Drain Team.
+- [ ] Add the verified drainage services offered by The Drain Team.
 - [ ] Confirm business contact details and service area are accurate.
 - [ ] Request genuine reviews from real customers.
 - [ ] Do not use AI-generated images as business-verification evidence.

@@ -33,7 +33,7 @@ assets/
 ### SECTIONS (index.html)
 | File to place | Used in | Notes |
 |---|---|---|
-| `images/sections/team-at-work.jpg` | "Why Us" section (right column) | Portrait crop (4:5 ratio). Show a plumber/engineer actively working. |
+| `images/sections/team-at-work.jpg` | "Why Us" section (right column) | Portrait crop (4:5 ratio). Show a drainage engineer actively working. |
 
 ### ABOUT PAGE (pages/about.html)
 | File to place | Used in | Notes |
@@ -55,7 +55,7 @@ assets/
 | `images/services/service-leak-detection.jpg` | 02 — Leak Detection | Landscape (16:10). Thermal camera or detection equipment. |
 | `images/services/service-cctv-survey.jpg` | 03 — CCTV Drain Survey | Landscape (16:10). CCTV camera being fed into drain. |
 | `images/services/service-pipe-repair.jpg` | 04 — Pipe Repair & Relining | Landscape (16:10). Pipe work, trench, or relining equipment. |
-| `images/services/service-water-systems.jpg` | 05 — Water Systems | Landscape (16:10). Boiler, cylinder, or pipework install. |
+| `images/services/service-water-systems.jpg` | 08: Drainage Maintenance | Landscape (16:10). Drain inspection or maintenance work. |
 | `images/services/service-emergency-callout.jpg` | 06 — Emergency Callout | Landscape (16:10). Van at night or urgent callout scene. |
 
 ### GALLERY (optional)
