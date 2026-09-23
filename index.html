@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-IE" class="coming-soon-active">
+<html lang="en-IE">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,34 +72,7 @@
     gtag('config', 'G-M5CYLFQ51L');
   </script>
 </head>
-<body class="coming-soon-active">
-
-<main class="coming-soon-page" aria-label="The Drain Team website coming soon">
-  <picture class="coming-soon-picture">
-    <source media="(max-width: 767px)" srcset="assets/images/coming-soon/coming-soon-mobile.jpg">
-    <img src="assets/images/coming-soon/coming-soon-desktop.jpg" alt="The Drain Team website coming soon" class="coming-soon-image">
-  </picture>
-</main>
-
-<div class="site-content site-content--hidden-temporary" hidden>
-
-<script>
-  (function () {
-    // Only the production domains keep the temporary Coming Soon screen.
-    var hostname = window.location.hostname.toLowerCase().replace(/\.$/, '');
-    if (hostname === 'thedrainteam.ie' || hostname === 'www.thedrainteam.ie') {
-      return;
-    }
-
-    document.documentElement.classList.remove('coming-soon-active');
-    document.body.classList.remove('coming-soon-active');
-    document.querySelector('.coming-soon-page').style.display = 'none';
-
-    var siteContent = document.querySelector('.site-content');
-    siteContent.classList.remove('site-content--hidden-temporary');
-    siteContent.hidden = false;
-  }());
-</script>
+<body>
 
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
@@ -415,8 +388,6 @@
     </div>
   </div>
 </footer>
-
-</div>
 
 </body>
 </html>

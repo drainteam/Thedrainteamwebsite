@@ -5,6 +5,37 @@
 (function () {
   'use strict';
 
+  // Keep every real page and URL in place, but cover the site on its two
+  // production hostnames. Localhost, 127.0.0.1 and Live Server hosts do not
+  // match this allowlist, so development always exposes the full website.
+  var hostname = window.location.hostname.toLowerCase().replace(/\.$/, '');
+  var isProductionDomain = hostname === 'thedrainteam.ie' ||
+    hostname === 'www.thedrainteam.ie';
+
+  if (isProductionDomain) {
+    document.documentElement.classList.add('coming-soon-active');
+    document.body.classList.add('coming-soon-active');
+
+    // `inert` prevents keyboard, pointer and assistive-technology interaction
+    // with the preserved website while the fixed cover is present.
+    Array.prototype.forEach.call(document.body.children, function (element) {
+      element.inert = true;
+    });
+
+    var cover = document.createElement('div');
+    cover.className = 'coming-soon-page';
+    cover.setAttribute('data-coming-soon-cover', '');
+    cover.innerHTML =
+      '<picture class="coming-soon-picture">' +
+        '<source media="(max-width: 767px)" srcset="/assets/images/coming-soon/coming-soon-mobile.jpg">' +
+        '<img src="/assets/images/coming-soon/coming-soon-desktop.jpg" ' +
+          'alt="The Drain Team website coming soon" class="coming-soon-image" ' +
+          'fetchpriority="high">' +
+      '</picture>';
+    document.body.appendChild(cover);
+    return;
+  }
+
   var prefersReducedMotion = window.matchMedia &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
