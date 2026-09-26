@@ -24,10 +24,10 @@ Enable Places API for the Google Cloud project associated with the server-side A
 
 ## Deployment
 
-The current repository is otherwise a static site. Its hosting platform must support Vercel-compatible serverless API routes, or `api/google-reviews.js` must be adapted to an equivalent backend/proxy. Without backend support or configured environment variables, the homepage section stays hidden.
+The current repository is otherwise a static site. Its hosting platform must support Vercel-compatible serverless API routes, or `api/google-reviews.js` must be adapted to an equivalent backend/proxy. Without backend support or configured environment variables, the review sections show an honest empty state instead of review data.
 
 ## Caching and attribution
 
-The API response uses a six-hour shared cache with stale revalidation to avoid excessive requests. Keep visible Google attribution, author attribution, and the Google Maps review link where Google supplies them.
+The API response uses a configurable shared cache that defaults to one hour, with stale revalidation, to avoid excessive requests. Keep visible Google attribution, author attribution, and the Google Maps review link where Google supplies them.
 
 Never fabricate review text, author names, ratings, or review counts.

@@ -398,10 +398,7 @@
         }
 
         if (!endpoint) {
-          // No delivery endpoint configured yet — tell the truth.
-          showStatus('error',
-            'Sorry, online enquiries are not available yet. ' +
-            'Please try again later while we finish setting up this page.');
+          showStatus('error', 'Sorry, online enquiries are unavailable right now. Please try again later.');
           return;
         }
 
@@ -422,7 +419,7 @@
           var confirmed = result && (result.success === true || result.success === 'true');
 
           if (requiresActivation) {
-            showStatus('error', 'Your enquiry could not be confirmed as delivered because the form email needs activation. Please call or WhatsApp the team instead.');
+            showStatus('error', 'Your enquiry could not be confirmed as delivered. Please try again later.');
             return;
           }
 
@@ -431,7 +428,7 @@
           form.reset();
           showStatus('success', 'Thanks. Your message has been sent to The Drain Team.');
         }).catch(function () {
-          showStatus('error', 'Sorry, your message could not be sent. Please call or WhatsApp the team instead.');
+          showStatus('error', 'Sorry, your message could not be sent. Please try again later.');
         }).finally(function () {
           submitBtn.disabled = false;
           submitBtn.textContent = originalLabel;

@@ -102,9 +102,10 @@ rendered publicly.
 
 ## Contact-form delivery
 
-- [ ] Form delivery email
-- [ ] Form endpoint (set `data-endpoint` on `#contactForm` in pages/contact.html)
-- [ ] Hosting or serverless configuration
+- [x] FormSubmit AJAX endpoint configured: `https://formsubmit.co/ajax/info@thedrainteam.ie`
+- [x] Client-side form submission implementation complete
+- [x] Required-field validation and success/error handling implemented
+- [x] FormSubmit activated and real delivery to `info@thedrainteam.ie` confirmed
 - [ ] Spam-protection method (honeypot in place; reCAPTCHA/Turnstile keys needed)
 - [ ] Privacy notice wording
 
@@ -152,7 +153,7 @@ rendered publicly.
 | `[PLACEHOLDER: verified founding story…]` | pages/about.html | Our Story | Founding year, history | Neutral company description shown |
 | `[PLACEHOLDER: verified Google rating and review count]` | pages/about.html | About stat tiles | Rating + review count | Tiles hidden |
 | `[PLACEHOLDER: verified opening hours…]` | pages/contact.html | Contact details | Opening hours, emergency hours | Hours item hidden |
-| `[PLACEHOLDER: form delivery endpoint…]` | pages/contact.html | Contact form | Form endpoint + delivery email | Submission blocked with honest "not available yet" message |
+| Contact form delivery | pages/contact.html | Contact form | No implementation input required | FormSubmit activated; AJAX submission, validation, success/error handling, and real delivery confirmed |
 | `[PLACEHOLDER: privacy notice wording…]` | pages/contact.html | Contact form | Privacy notice + policy link | Generic one-line data-use note shown |
 | `[PLACEHOLDER: production spam protection…]` | pages/contact.html | Contact form | reCAPTCHA/Turnstile keys or equivalent | Honeypot only |
 | `[PLACEHOLDER: confirmed coverage of Kildare, Meath and Wicklow…]` | all pages | Footer service areas | County coverage confirmation | Only Dublin areas listed as plain text |

@@ -1,6 +1,6 @@
 # The Drain Team
 
-The Drain Team provides drainage services for homes and businesses. Its primary local focus is Dublin, and its stated service area is Ireland. Groundworks is a secondary business focus.
+The Drain Team provides drainage services for homes and businesses throughout Dublin and the Greater Dublin area. Groundworks is a secondary business focus.
 
 ## Services
 
@@ -15,17 +15,17 @@ The Drain Team provides drainage services for homes and businesses. Its primary 
 
 ## Contact
 
-Email: info@thedrainteam.ie
-Phone: +353 83 200 1988
-WhatsApp: https://wa.me/353832001988
 Website: https://thedrainteam.ie
+Enquiries: https://thedrainteam.ie/pages/contact.html
+
+The website currently directs enquiries through its contact form. Do not infer a public telephone number, email address, physical address, or opening hours.
 
 ## Pages
 
 - Home: overview of The Drain Team and its drainage services: https://thedrainteam.ie/
 - Services: summary of available drainage support: https://thedrainteam.ie/pages/services.html
-- Contact: enquiry form and contact options: https://thedrainteam.ie/pages/contact.html
-- About: information about The Drain Team and the customers it supports: https://thedrainteam.ie/pages/about.html
+- Contact: enquiry form and Dublin and Greater Dublin service-area information: https://thedrainteam.ie/pages/contact.html
+- About: practical approach, drainage focus, and how the team works: https://thedrainteam.ie/pages/about.html
 
 ## Accuracy note
 
