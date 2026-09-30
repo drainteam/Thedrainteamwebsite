@@ -49,39 +49,6 @@
   document.addEventListener('DOMContentLoaded', function () {
 
     // ─── HOMEPAGE WHATSAPP WIDGET ───────────────────────
-    var whatsappWidget = document.querySelector('.whatsapp-widget');
-    if (whatsappWidget) {
-      var whatsappToggle = whatsappWidget.querySelector('.whatsapp-widget__toggle');
-      var whatsappClose = whatsappWidget.querySelector('.whatsapp-widget__close');
-
-      document.documentElement.classList.add('whatsapp-enhanced');
-
-      var closeWhatsapp = function (returnFocus) {
-        whatsappWidget.classList.remove('is-open');
-        whatsappToggle.setAttribute('aria-expanded', 'false');
-        whatsappToggle.setAttribute('aria-label', 'Open WhatsApp chat prompt');
-        if (returnFocus) whatsappToggle.focus();
-      };
-
-      whatsappToggle.addEventListener('click', function (event) {
-        event.preventDefault();
-        var opening = !whatsappWidget.classList.contains('is-open');
-        whatsappWidget.classList.toggle('is-open', opening);
-        whatsappToggle.setAttribute('aria-expanded', opening ? 'true' : 'false');
-        whatsappToggle.setAttribute('aria-label', opening ? 'Close WhatsApp chat prompt' : 'Open WhatsApp chat prompt');
-      });
-
-      whatsappClose.addEventListener('click', function () {
-        closeWhatsapp(true);
-      });
-
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && whatsappWidget.classList.contains('is-open')) {
-          closeWhatsapp(true);
-        }
-      });
-    }
-
     // ─── NAVBAR SCROLL STATE ─────────────────────────────
     var navbar = document.getElementById('navbar');
     if (navbar) {

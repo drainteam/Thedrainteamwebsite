@@ -1133,6 +1133,9 @@ a.footer-social__link:focus-visible {
   align-items: center;
 }
 .about-story > * { min-width: 0; }
+.about-story > .animate-in:first-child {
+  align-self: stretch;
+}
 .about-story-text h2 {
   font-size: clamp(36px, 4vw, 56px);
   margin-bottom: 28px;
@@ -1228,10 +1231,15 @@ a.footer-social__link:focus-visible {
   padding: 100px 48px;
   background: var(--dark);
 }
+.about-team-inner {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+}
 .about-team-title {
   font-size: clamp(36px, 4vw, 60px);
   color: var(--white);
-  margin-bottom: 8px;
+  margin-bottom: 40px;
 }
 .about-team-sub {
   font-size: 15px;
@@ -1240,7 +1248,7 @@ a.footer-social__link:focus-visible {
 }
 /* About story media + stat tiles (moved from inline styles) */
 .about-story-media {
-  aspect-ratio: 8 / 5;
+  height: 100%;
   background: var(--light);
   overflow: hidden;
   margin-bottom: 0;
@@ -1286,6 +1294,9 @@ a.footer-social__link:focus-visible {
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
+.about-team .team-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 .team-card {
   background: var(--dark-2);
   overflow: hidden;
@@ -1295,6 +1306,36 @@ a.footer-social__link:focus-visible {
   background: #2a2a2a;
   position: relative;
   overflow: hidden;
+}
+.about-team .team-card-image {
+  aspect-ratio: 4 / 3;
+}
+.team-card-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.55);
+}
+.team-card-placeholder__initials {
+  width: 72px;
+  height: 72px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.team-card-placeholder__label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 .team-card-image img {
   width: 100%; height: 100%;
@@ -1324,6 +1365,12 @@ a.footer-social__link:focus-visible {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--red);
+}
+.team-card-experience {
+  margin-top: 12px;
+  color: rgba(255,255,255,0.72);
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 /* ─── SERVICES PAGE ─────────────────────────────────── */
@@ -1803,7 +1850,8 @@ html.js .animate-in.delay-4 { transition-delay: 0.4s; }
   .values-grid { grid-template-columns: repeat(2, 1fr); }
   .team-grid { grid-template-columns: repeat(2, 1fr); }
   .about-story { grid-template-columns: 1fr; gap: 48px; }
-  .about-story-media { aspect-ratio: 8 / 5; }
+  .about-story > .animate-in:first-child { align-self: auto; }
+  .about-story-media { height: auto; aspect-ratio: 8 / 5; }
   .service-row { grid-template-columns: 1fr; }
   .service-row.reversed .service-row-image { order: 0; }
   .service-row.reversed .service-row-content { order: 0; }
@@ -1899,6 +1947,7 @@ html.js .animate-in.delay-4 { transition-delay: 0.4s; }
   .why-us-content { padding-right: 0; }
   .why-us-title { font-size: clamp(34px, 10.5vw, 46px); }
   .team-grid { grid-template-columns: 1fr; }
+  .about-team .team-grid { grid-template-columns: 1fr; }
   .contact-form-wrapper { padding: 32px 16px; }
   .service-row-content { padding: 32px 16px; }
   footer { padding: 48px 16px 0; }
@@ -1916,10 +1965,9 @@ html.js .animate-in.delay-4 { transition-delay: 0.4s; }
   }
   .whatsapp-widget__panel { padding: 22px; }
   .whatsapp-widget__toggle {
-    width: 54px;
+    width: auto;
     min-width: 54px;
     height: 54px;
-    padding: 0;
+    padding: 0 14px;
   }
-  .whatsapp-widget__toggle span { display: none; }
 }
