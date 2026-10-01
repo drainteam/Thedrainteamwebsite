@@ -505,12 +505,21 @@ html.js .animate-in.visible {
   position: relative;
   z-index: 2;
   padding: 128px 48px 64px;
+  width: 100%;
   max-width: 900px;
+  margin-inline: auto;
+  text-align: center;
 }
 .hero-title {
-  font-size: clamp(60px, 7.5vw, 108px);
-  color: var(--white);
+  width: min(680px, 56vw);
+  margin-inline: auto;
   margin-bottom: 28px;
+}
+.hero-logo {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 .hero-title .accent { color: var(--red); }
 .hero-sub {
@@ -519,13 +528,14 @@ html.js .animate-in.visible {
   line-height: 1.7;
   color: rgba(255,255,255,0.78);
   max-width: 520px;
-  margin-bottom: 44px;
+  margin: 0 auto 44px;
 }
 .hero-actions {
   position: relative;
   z-index: 3;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
 }
@@ -1498,6 +1508,7 @@ a.footer-social__link:focus-visible {
   font-weight: 600;
   color: var(--dark);
 }
+.contact-item a.contact-item-value:hover { color: var(--red); }
 .contact-emergency-box {
   background: var(--dark);
   padding: 32px;
@@ -1528,6 +1539,46 @@ a.footer-social__link:focus-visible {
   font-size: 28px;
   margin-bottom: 36px;
 }
+.contact-direct-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 28px;
+  padding: 24px;
+  border-left: 3px solid var(--red);
+  background: var(--white);
+}
+.contact-direct-options__intro h4 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.contact-direct-options__intro p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.contact-direct-options__actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+}
+.contact-direct-option {
+  min-height: 48px;
+  padding: 0 16px;
+  gap: 9px;
+  justify-content: center;
+  white-space: nowrap;
+}
+.contact-direct-option--call {
+  border: 1px solid var(--dark);
+  background: var(--dark);
+  color: var(--white);
+}
+.contact-direct-option--call:hover { background: var(--mid); }
 .form-group {
   margin-bottom: 24px;
 }
@@ -1831,6 +1882,7 @@ html.js .animate-in.delay-4 { transition-delay: 0.4s; }
 /* ─── RESPONSIVE ─────────────────────────────────────── */
 @media (max-width: 1024px) {
   .page-hero { min-height: 460px; padding: 132px 24px 64px; }
+  .hero-title { width: min(600px, 76vw); }
   .google-reviews-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .navbar { padding-left: 24px; padding-right: 24px; }
   .nav-links { gap: 24px; }
@@ -1900,6 +1952,9 @@ html.js .animate-in.delay-4 { transition-delay: 0.4s; }
   .map-section-wrapper { padding: 64px 24px; }
   .service-area-content { padding: 48px 40px; }
   .contact-form-wrapper { padding: 40px 24px; }
+  .contact-direct-options { align-items: stretch; flex-direction: column; }
+  .contact-direct-options__actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .contact-direct-option { padding-inline: 12px; }
   .form-row { grid-template-columns: 1fr; }
   .service-row-content { padding: 40px 24px; }
   .nav-mobile { padding: 24px; }
@@ -1915,7 +1970,7 @@ html.js .animate-in.delay-4 { transition-delay: 0.4s; }
   .nav-mobile { top: 64px; max-height: calc(100vh - 64px); padding: 20px 16px 28px; }
   .hero { min-height: 82svh; }
   .hero-content { padding: 88px 16px 44px; }
-  .hero-title { font-size: clamp(40px, 12.5vw, 60px); }
+  .hero-title { width: min(100%, 420px); }
   .hero-sub { font-size: 15px; }
   .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; }
   .hero-actions .btn { justify-content: center; width: 100%; }
@@ -1949,6 +2004,9 @@ html.js .animate-in.delay-4 { transition-delay: 0.4s; }
   .team-grid { grid-template-columns: 1fr; }
   .about-team .team-grid { grid-template-columns: 1fr; }
   .contact-form-wrapper { padding: 32px 16px; }
+  .contact-direct-options { padding: 20px 16px; }
+  .contact-direct-options__actions { grid-template-columns: 1fr; }
+  .contact-direct-option { width: 100%; }
   .service-row-content { padding: 32px 16px; }
   footer { padding: 48px 16px 0; }
   .map-section-wrapper { padding: 48px 16px; }
