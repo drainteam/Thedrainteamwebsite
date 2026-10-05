@@ -1,27 +1,28 @@
 # The Drain Team
 
-Official website:
-https://thedrainteam.ie
+The Drain Team is an Irish family business specialising in drainage, inspections, repairs and groundworks for domestic and commercial properties in Dublin.
 
-Business:
-Drainage services for homes and businesses throughout Dublin and the Greater Dublin area.
-Groundworks is a secondary business focus.
+## Main Services
 
-Key services:
-- Drain Unblocking
-- Drain Cleaning
+- High Pressure Jetting
 - CCTV Drain Surveys
-- Drain Repairs
-- Emergency Drainage
-- Domestic Drainage
-- Commercial Drainage
-- Drain Maintenance
+- Dig-Up Repairs & New Pipework
+- Patch Repairs
+- Smoke Testing
+- Dye Testing / Drain Tracing
+- Gutter Cleaning
+- Power Washing
 
-Contact:
-Use the enquiry form at https://thedrainteam.ie/pages/contact.html
+## Main Pages
 
-Important pages:
-- https://thedrainteam.ie/
-- https://thedrainteam.ie/pages/services.html
-- https://thedrainteam.ie/pages/contact.html
-- https://thedrainteam.ie/pages/about.html
+- Home: https://thedrainteam.ie/
+- About: https://thedrainteam.ie/pages/about.html
+- Services: https://thedrainteam.ie/pages/services.html
+- Contact: https://thedrainteam.ie/pages/contact.html
+
+## Business Information
+
+- Business: The Drain Team
+- Location: Dublin, Ireland
+- Phone: 083 200 1988
+- Website: https://thedrainteam.ie/
