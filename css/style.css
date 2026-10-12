@@ -498,8 +498,8 @@ html.js .animate-in.visible {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to right, rgba(17,17,17,0.92) 40%, rgba(17,17,17,0.5) 100%),
-    url('../assets/images/hero/hero-bg.jpg') center/cover no-repeat;
+    linear-gradient(to right, rgba(17,17,17,0.92) -20%, rgba(17,17,17,0.5) 100%),
+    url('../assets/images/hero/Branded Drain Team Vans Overlooking Cityscape.png') center/cover no-repeat;
 }
 .hero-content {
   position: relative;
@@ -1066,11 +1066,15 @@ a.footer-social__link:focus-visible {
   max-width: 760px;
 }
 .page-hero--about {
-  --page-hero-image: url('../assets/images/hero/hero-about.jpg');
-  background-position: center 30%;
+  --page-hero-image: url('../assets/images/hero/Hero_family0.webp');
+  background-position: center 15%;
 }
 .page-hero--services {
-  --page-hero-image: url('../assets/images/hero/hero-services.svg');
+  --page-hero-image: url('../assets/images/hero/hero-services.JPG');
+  background-image:
+    linear-gradient(to right, rgba(17,17,17,0.90) 0%, rgba(17,17,17,0.66) 32%, rgba(17,17,17,0.14) 58%, rgba(17,17,17,0.02) 100%),
+    var(--page-hero-image);
+  background-position: center 30%;
 }
 .page-hero--contact {
   --page-hero-image: url('../assets/images/hero/hero-contact.svg');
@@ -1087,6 +1091,7 @@ a.footer-social__link:focus-visible {
   overflow-wrap: break-word;
   text-wrap: balance;
 }
+.about-title-mobile-break { display: none; }
 .page-hero-sub {
   max-width: 540px;
   color: rgba(255,255,255,0.85);
@@ -1352,6 +1357,9 @@ a.footer-social__link:focus-visible {
   object-fit: cover;
   filter: grayscale(30%);
   transition: transform 0.5s var(--ease), filter 0.5s var(--ease);
+}
+.about-team .team-card-image img {
+  object-position: center 20%;
 }
 .team-card:hover .team-card-image img {
   transform: scale(1.04);
@@ -1935,6 +1943,7 @@ html.js .animate-in.delay-4 { transition-delay: 0.4s; }
 }
 @media (max-width: 768px) {
   .page-hero { min-height: 420px; padding-top: 120px; padding-bottom: 56px; }
+  .about-title-mobile-break { display: block; }
   .google-reviews-section { padding: 72px 24px; }
   .google-reviews-section__top { grid-template-columns: 1fr; gap: 28px; }
   .google-reviews-summary { text-align: left; }
@@ -1949,6 +1958,7 @@ html.js .animate-in.delay-4 { transition-delay: 0.4s; }
   .about-team, .page-hero { padding-left: 24px; padding-right: 24px; }
   .about-page .breadcrumb { padding-top: 12px; }
   .about-story { padding-top: 60px; padding-bottom: 60px; }
+  .about-story-img { object-position: center top; }
   .about-values { padding-top: 60px; padding-bottom: 60px; }
   .about-work-list { grid-template-columns: 1fr; gap: 34px; }
   .about-work-item p { max-width: 560px; }
