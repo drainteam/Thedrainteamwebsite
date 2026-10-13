@@ -670,6 +670,7 @@ a.service-card:focus-visible { outline-offset: -2px; }
 }
 .service-card:nth-child(2) .service-card-media img { object-position: 48% center; }
 .service-card:nth-child(3) .service-card-media img { object-position: 58% center; }
+.service-card:nth-child(5) .service-card-media img { object-position: center 40%; }
 .service-card-content {
   position: absolute;
   z-index: 1;
