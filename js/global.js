@@ -427,9 +427,8 @@
       var list = section.querySelector('[data-google-reviews-list]');
       var previousButton = section.querySelector('[data-google-reviews-previous]');
       var nextButton = section.querySelector('[data-google-reviews-next]');
-      var counter = section.querySelector('[data-google-reviews-counter]');
       var googleLink = section.querySelector('[data-google-reviews-link]');
-      if (!slider || !list || !previousButton || !nextButton || !counter || !googleLink) return;
+      if (!slider || !list || !previousButton || !nextButton || !googleLink) return;
 
       var temporaryReviews = [
         { name: 'Edward Clancy', rating: 5, date: '', text: 'From the initial contact and works carried out everything was very professional. This is an old building that was built in stages with many different drain ...', initial: 'E' },
@@ -461,8 +460,6 @@
       var swipeStartY = null;
       var autoplayTimer = null;
       var autoplayInterval = 10000;
-      var pointerIsOverSlider = false;
-      var focusIsInsideSlider = false;
       var reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
       var getReviewPosition = function (index) {
@@ -488,7 +485,6 @@
             card.removeAttribute('aria-current');
           }
         });
-        counter.textContent = reviews.length ? (activeIndex + 1) + ' / ' + reviews.length : '';
       };
 
       var showReview = function (index) {
@@ -506,8 +502,7 @@
 
       var scheduleAutoplay = function () {
         stopAutoplay();
-        if (cards.length < 2 || reducedMotionQuery.matches || document.hidden ||
-            pointerIsOverSlider || focusIsInsideSlider) return;
+        if (cards.length < 2 || reducedMotionQuery.matches || document.hidden) return;
         autoplayTimer = window.setTimeout(function () {
           showReview(activeIndex + 1);
           scheduleAutoplay();
@@ -546,7 +541,6 @@
         var hasMultipleReviews = cards.length > 1;
         previousButton.hidden = !hasMultipleReviews;
         nextButton.hidden = !hasMultipleReviews;
-        counter.hidden = !hasMultipleReviews;
         updateReviewSlider();
         scheduleAutoplay();
       };
@@ -587,27 +581,7 @@
       slider.addEventListener('pointercancel', function () {
         swipeStartX = null;
         swipeStartY = null;
-      });
-
-      slider.addEventListener('pointerenter', function (event) {
-        if (event.pointerType !== 'mouse') return;
-        pointerIsOverSlider = true;
-        stopAutoplay();
-      });
-      slider.addEventListener('pointerleave', function (event) {
-        if (event.pointerType !== 'mouse') return;
-        pointerIsOverSlider = false;
         scheduleAutoplay();
-      });
-      slider.addEventListener('focusin', function () {
-        focusIsInsideSlider = true;
-        stopAutoplay();
-      });
-      slider.addEventListener('focusout', function () {
-        window.setTimeout(function () {
-          focusIsInsideSlider = slider.contains(document.activeElement);
-          if (!focusIsInsideSlider) scheduleAutoplay();
-        }, 0);
       });
       document.addEventListener('visibilitychange', function () {
         if (document.hidden) {
