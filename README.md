@@ -115,7 +115,7 @@ The professional team photo session has been completed, and real photography is 
 
 - `assets/images/logos/Logo_ White.png` — shared navigation/footer logo
 - `assets/images/hero/hero-contact.svg` — current Contact hero artwork
-- `assets/images/hero/dd.jpg` — current Open Graph and Twitter sharing image on the main public pages
+- `assets/images/hero/Branded Drain Team Vans Overlooking Cityscape.png` — current Open Graph and Twitter sharing image on the main public pages
 
 Other image files may remain in the repository as sources, older assets or unused alternatives. They are not documented here as active or prepared assets unless the current code references them.
 
